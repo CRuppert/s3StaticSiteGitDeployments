@@ -1,0 +1,57 @@
+﻿@model s3StaticSitePublisher.AppDomain.BuildJobData
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>Details</h2>
+
+<fieldset>
+    <legend>BuildJobData</legend>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.GitRepositoryUrl)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.GitRepositoryUrl)
+    </div>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.GitUsername)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.GitUsername)
+    </div>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.GitPassword)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.GitPassword)
+    </div>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.AmazonS3Bucket)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.AmazonS3Bucket)
+    </div>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.AmazonKey)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.AmazonKey)
+    </div>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.AmazonSecretKey)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.AmazonSecretKey)
+    </div>
+</fieldset>
+<p>
+    @*@Html.ActionLink("Edit", "Edit", new { id=Model.Id })*@ |
+    @Html.ActionLink("Back to List", "Index")
+</p>

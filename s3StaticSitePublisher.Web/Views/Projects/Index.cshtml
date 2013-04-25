@@ -1,0 +1,40 @@
+﻿@model IList<s3StaticSitePublisher.AppDomain.BuildJobData>
+
+@{
+}
+
+<h2>Projects</h2>
+<a href="/Projects/Create">New Project</a>
+<table>
+    <thead>
+        <tr>
+            <td>Repo</td>
+            <td></td>
+            <td></td>
+        </tr>
+    </thead>
+    @foreach (var p in Model)
+    {
+        <tr>
+            <td>@p.GitRepositoryUrl</td>
+            <td></td>
+            <td><a href="/Projects/Edit/@p.Id">Edit</a> <a class="deploy" href="#" rel="@p.Id">Deploy</a></td>
+        </tr>
+    }
+</table>
+
+
+@*this thing should be using signalR to execute and offload these requests.*@
+<script type="text/javascript">
+    $(".deploy").click(function(e) {
+        var lnk = $(this);
+        var id = lnk.attr("rel");
+        lnk.prepend($("<img class='spinner' src='/Content/tinySpinner.gif' />"));
+        var url = "/DeployApi/Deploy/" + id;
+        $.post(url, function(resp) {
+            //alert("deployed");
+            lnk.find(".spinner").remove();
+        });
+    })
+    
+</script>

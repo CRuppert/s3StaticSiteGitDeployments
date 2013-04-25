@@ -1,0 +1,76 @@
+﻿@model s3StaticSitePublisher.AppDomain.BuildJobData
+
+@{
+    ViewBag.Title = "Create";
+}
+
+<h2>Create</h2>
+
+@using (Html.BeginForm()) {
+    @Html.AntiForgeryToken()
+    @Html.ValidationSummary(true)
+
+    <fieldset>
+        <legend>BuildJobData</legend>
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.GitRepositoryUrl)
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.GitRepositoryUrl)
+            @Html.ValidationMessageFor(model => model.GitRepositoryUrl)
+        </div>
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.GitUsername)
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.GitUsername)
+            @Html.ValidationMessageFor(model => model.GitUsername)
+        </div>
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.GitPassword)
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.GitPassword)
+            @Html.ValidationMessageFor(model => model.GitPassword)
+        </div>
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.AmazonS3Bucket)
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.AmazonS3Bucket)
+            @Html.ValidationMessageFor(model => model.AmazonS3Bucket)
+        </div>
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.AmazonKey)
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.AmazonKey)
+            @Html.ValidationMessageFor(model => model.AmazonKey)
+        </div>
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.AmazonSecretKey)
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.AmazonSecretKey)
+            @Html.ValidationMessageFor(model => model.AmazonSecretKey)
+        </div>
+
+        <p>
+            <input type="submit" value="Create" />
+        </p>
+    </fieldset>
+}
+
+<div>
+    @Html.ActionLink("Back to List", "Index")
+</div>
+
+@section Scripts {
+    @Scripts.Render("~/bundles/jqueryval")
+}
